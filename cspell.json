@@ -1,0 +1,15 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [],
+    "ignoreWords": [
+        "iconsets",
+        "inertiajs",
+        "laravel",
+        "materialdesignicons",
+        "vuetify"
+    ],
+    "import": []
+}

@@ -1,0 +1,44 @@
+name: app
+
+services:
+
+    # server
+    server:
+        container_name: server-dev
+
+        build:
+            args:
+                # User and Group Identifier
+                # Privilege and permissions to user
+                - UID=${UID:-1000}
+                - GID=${GID:-1000}
+
+            dockerfile: ./dockerfiles/server.dockerfile
+        ports:
+            - 8000:80
+        volumes:
+            - ./../../:/var/www/html
+        depends_on:
+            - app
+    # -----------
+
+
+    # source
+    app:
+        container_name: app-dev
+
+        build:
+            args:
+                # User and Group Identifier
+                # Privilege and permissions to user
+                - UID=${UID:-1000}
+                - GID=${GID:-1000}
+
+            dockerfile: ./dockerfiles/app.dockerfile
+        volumes:
+            # Marked as delegated for chunking (performance)
+            - ./../../:/var/www/html:delegated
+        ports:
+            # Expose vite port when running npm run dev (development purposes)
+            - 5173:5173
+    # -----------
