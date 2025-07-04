@@ -1,5 +1,5 @@
 import '../css/app.css'
-
+import '../css/inter.css'
 
 import { createInertiaApp } from '@inertiajs/vue3'
 import { createPinia } from 'pinia'

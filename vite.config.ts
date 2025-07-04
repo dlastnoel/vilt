@@ -31,7 +31,10 @@ export default defineConfig({
             },
         }),
         vuetify({
-            autoImport: true,
+            autoImport: true ,
+            styles: {
+                configFile: 'resources/scss/settings.scss'
+            },
         }),
     ],
     resolve: {
