@@ -27,9 +27,22 @@ RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
 
 # gd
 RUN apk add --no-cache \
-    libpng libpng-dev \
-    && docker-php-ext-install gd \
-    && apk del libpng-dev
+    libjpeg-turbo-dev \
+    libpng-dev \
+    libwebp-dev \
+    freetype-dev \
+    && docker-php-ext-configure gd \
+        --with-freetype \
+        --with-jpeg \
+        --with-webp \
+    && docker-php-ext-install gd
+
+# imagick
+RUN apk add --update --no-cache $PHPIZE_DEPS imagemagick imagemagick-libs
+RUN apk add --update --no-cache --virtual .docker-php-imagick-dependencies imagemagick-dev && \
+    pecl install imagick && \
+    docker-php-ext-enable imagick && \
+    apk del .docker-php-imagick-dependencies
 
 # zip
 RUN apk add --no-cache \
@@ -47,6 +60,10 @@ RUN apk add --no-cache --virtual .intl-deps icu-dev zlib-dev \
 # mysql
 RUN docker-php-ext-install pdo_mysql
 
+# exif
+RUN docker-php-ext-install exif &&  \
+    docker-php-ext-enable exif
+
 # redis
 RUN apk add --no-cache --virtual .redis-deps pcre-dev $PHPIZE_DEPS \
     && pecl install redis \
@@ -55,6 +72,14 @@ RUN apk add --no-cache --virtual .redis-deps pcre-dev $PHPIZE_DEPS \
 
 # openssl
 RUN apk add --no-cache openssl
+
+# image optimizers
+RUN apk add --no-cache \
+    jpegoptim \
+    optipng \
+    pngquant \
+    gifsicle \
+    nodejs
 
 # node / npm
 RUN apk add --no-cache nodejs npm
