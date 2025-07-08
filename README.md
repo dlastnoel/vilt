@@ -64,6 +64,9 @@ npm install
 php artisan key:generate
 ```
 
+### 5. Running in browser
+Run with localhost as usual, 127.0.0.1:8000
+
 ## 🐋 Configuring with Docker
 
 * Port 8000 and 5173 is intended for exposing the docker container. Change port if 8000 is in within the operating system. These can be found in the *docker-compose.yml*
@@ -111,7 +114,7 @@ server: {
 
 
 
-## Creating issue within the reposity
+## Creating Issues in Repository
 * Blank issues are disabled. Kindly use the appropriate template in writing issues.
 
 ![alt text](./readme/issue_templates.png)
