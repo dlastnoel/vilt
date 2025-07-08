@@ -7,6 +7,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
 
+    // uncomment this block when running with docker
     server: {
         hmr: {
             host: 'localhost',
