@@ -112,11 +112,11 @@ server: {
 }
 ```
 
-## Usage with Tailwind
+## 💨 Usage with Tailwind
 Tailwind is already included. To avoid conflicts with Vuetify, use ***tw:*** as prefix to enable tailwind class styles.
 
 
-## Creating Issues in Repository
+## 📃 Creating Issues in Repository
 * Blank issues are disabled. Kindly use the appropriate template in writing issues.
 
 ![alt text](./readme/issue_templates.png)
