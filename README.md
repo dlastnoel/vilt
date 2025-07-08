@@ -112,6 +112,8 @@ server: {
 }
 ```
 
+## Usage with Tailwind
+Tailwind is already included. To avoid conflicts with Vuetify, use ***tw:*** as prefix to enable tailwind class styles.
 
 
 ## Creating Issues in Repository
