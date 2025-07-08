@@ -22,7 +22,7 @@ This setup is intended for development purposes with the use of docker. (Dockeri
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git <folder-name>
+git clone https://github.com/dlastnoel/vilt.git <folder-name>
 cd <folder-name>
 ```
 
